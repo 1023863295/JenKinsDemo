@@ -18,8 +18,17 @@ android {
 
     buildTypes {
         release {
+            signingConfigs.config
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    signingConfigs {
+        config {
+            keyAlias GRADLEDOM_RELEASE_KEY_ALIAS
+            keyPassword GRADLEDOM_RELEASE_KEY_PASSWORD
+            storeFile file(GRADLEDOME_RELEASE_STORE_FILE)
+            storePassword GRADLEDOM_RELEASE_STORE_PASSWORD
         }
     }
 
