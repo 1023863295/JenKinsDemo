@@ -16,13 +16,6 @@ android {
                                 GOOGLE_SERVER_CLIENT_ID:"google"]
     }
 
-    buildTypes {
-        release {
-            signingConfigs.config
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
     signingConfigs {
         config {
             keyAlias GRADLEDOM_RELEASE_KEY_ALIAS
@@ -31,6 +24,15 @@ android {
             storePassword GRADLEDOM_RELEASE_STORE_PASSWORD
         }
     }
+
+    buildTypes {
+        release {
+            signingConfigs.config
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
 
 }
 
