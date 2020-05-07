@@ -34,6 +34,31 @@ android {
     }
 
 
+    android.applicationVariants.all {
+        variant ->
+            variant.outputs.all {
+                //在这里修改apk文件名，引号内的字符串都可以随便定义
+                outputFileName = "_v${defaultConfig.versionName}_${buildType.name}_+${new Date().format("yyyy-MM-dd")}+.apk"
+            }
+    }
+    flavorDimensions "color"
+    productFlavors {
+        // app1
+        app1 {
+            // 设置applicationId（这里很重要，两个相同applicationId的apk不同同时安装在同一台Android手机中）
+            applicationId "com.example.app2"
+            // 自动生成@string/app_name为demo
+            resValue "string", "app_name", "app111"
+            dimension "color"
+        }
+        // app2
+        app2 {
+            // 解释同app1
+            applicationId "com.example.app3"
+            resValue "string", "app_name", "app222"
+            dimension "color"
+        }
+    }
 }
 
 dependencies {
